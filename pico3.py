@@ -44,4 +44,24 @@ matriz = [
 ]
 
 tamanho = len(matriz)
-print(tamanho)
+
+
+def encontrar_pico():
+    for i in range(1, tamanho - 1):  # Evita bordas
+        for j in range(1, tamanho - 1):
+            # Pega os vizinhos
+            cima = matriz[i-1][j]
+            baixo = matriz[i+1][j]
+            esquerda = matriz[i][j-1]
+            direita = matriz[i][j+1]
+            centro = matriz[i][j]
+
+            # Verifica se é um pico
+            if centro > cima and centro > baixo and centro > esquerda and centro > direita:
+                print(f"Pico encontrado em ({i}, {j}) com valor {centro}")
+                return
+
+    print("Nenhum pico encontrado")
+
+
+encontrar_pico()
