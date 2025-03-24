@@ -1,7 +1,8 @@
 import sys
-import time
 
-inicio = time.time()
+# início contagem do tempo
+
+# Array de uma dimensão
 Array = [1.0, 2.14, 3.28, 4.41, 5.55, 6.69, 7.83, 8.97, 10.10, 11.24,
          12.38, 13.52, 14.66, 15.79, 16.93, 18.07, 19.21, 20.34, 21.48, 22.62,
          23.76, 24.90, 26.03, 27.17, 28.31, 29.45, 30.59, 31.72, 32.86, 34.00,
@@ -22,29 +23,36 @@ Array = [1.0, 2.14, 3.28, 4.41, 5.55, 6.69, 7.83, 8.97, 10.10, 11.24,
          26.86, 25.97, 25.08, 24.19, 23.30, 22.41, 21.51, 20.62, 19.73, 18.84,
          17.95, 17.05, 16.16, 15.27, 14.38, 13.49, 12.59, 11.70, 10.81, 9.92,
          9.03, 8.14, 7.24, 6.35, 5.46, 4.57, 3.68, 2.78, 1.89, 1.00]
-
+# definição do tamanho total do array
 alt = len(Array)
+# divisão por dois para achar o número do meio
 v = alt // 2
+
+# função recursiva para achar o pico
 
 
 def pico(v):
-
+    # se ovalor estiver fora do Array aparece mensagem de erro e fecha o programa
     if v <= 0 or v >= alt - 1:
         print("Valor fora do escopo do Array")
         sys.exit(1)
-   
+    # definição dos três valores
     a = Array[v-1]
     b = Array[v]
     c = Array[v+1]
-
+    # se os tres valores estiverem subindo ache a metade da metade a frente
     if a < b < c:
         diferencial = (alt - v) // 2
         v = min(v + diferencial, alt-1)
+        # recursivamente execute a função
         pico(v)
+    # se os tres valores estiverem descendo ache a metade da metade para traz
     elif a > b > c:
         diferencial = (alt - v) // 2
         v = max(v-diferencial, 0)
+        # recursiva função
         pico(v)
+    # Em ultimo caso o pico foi encontrado
     else:
         print("pico encontrado: ", Array[v])
         sys.exit(0)
