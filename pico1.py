@@ -1,5 +1,7 @@
 import sys
+import time
 
+inicio = time.time()
 Array = [1.0, 2.14, 3.28, 4.41, 5.55, 6.69, 7.83, 8.97, 10.10, 11.24,
          12.38, 13.52, 14.66, 15.79, 16.93, 18.07, 19.21, 20.34, 21.48, 22.62,
          23.76, 24.90, 26.03, 27.17, 28.31, 29.45, 30.59, 31.72, 32.86, 34.00,
@@ -33,5 +35,9 @@ while i <= len(Array):
     elif a > b > c:
         i = i-1
     else:
-        print("O pico do Array é o valor %i\n", Array[i])
+        print("O pico do Array é o valor ", Array[i])
+
+        fim = time.time()
+        print(f"Tempo de execução : {fim - inicio:.100f} segundos.")
+
         sys.exit(0)
