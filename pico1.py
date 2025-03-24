@@ -1,7 +1,10 @@
 import sys
 import time
 
+# inicio da execução
 inicio = time.time()
+
+# Array de teste
 Array = [1.0, 2.14, 3.28, 4.41, 5.55, 6.69, 7.83, 8.97, 10.10, 11.24,
          12.38, 13.52, 14.66, 15.79, 16.93, 18.07, 19.21, 20.34, 21.48, 22.62,
          23.76, 24.90, 26.03, 27.17, 28.31, 29.45, 30.59, 31.72, 32.86, 34.00,
@@ -22,22 +25,28 @@ Array = [1.0, 2.14, 3.28, 4.41, 5.55, 6.69, 7.83, 8.97, 10.10, 11.24,
          26.86, 25.97, 25.08, 24.19, 23.30, 22.41, 21.51, 20.62, 19.73, 18.84,
          17.95, 17.05, 16.16, 15.27, 14.38, 13.49, 12.59, 11.70, 10.81, 9.92,
          9.03, 8.14, 7.24, 6.35, 5.46, 4.57, 3.68, 2.78, 1.89, 1.00]
-
+# definição de variável de controle de Array
 i = 1
-while i <= len(Array):
-
+# Loop até chegar ao último elemento do Array
+while i <= len(Array-1):
+    # Define três valores seguidos do Array
     a = Array[i-1]
     b = Array[i]
     c = Array[i+1]
-
+    # se os três valores estiverem subindo:
     if a < b < c:
+        # pule para o próximo número do Array
         i = i + 1
+    # Se os três valores estiverem descendo:
     elif a > b > c:
+        # pule para o valor anterior.
         i = i-1
+        # Caso contrario achou o pico pois b será maior que a e c.
     else:
         print("O pico do Array é o valor ", Array[i])
-
+        # fim da execução
         fim = time.time()
+        # tempo de execução
         print(f"Tempo de execução : {fim - inicio:.100f} segundos.")
-
+        # fechar programa
         sys.exit(0)
